@@ -1,0 +1,3736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Learning Pro | Master English Easily</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #4895ef;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --success: #4cc9f0;
+            --warning: #f8961e;
+            --danger: #ef233c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --text-muted: #6c757d;
+            --border-color: #dee2e6;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 25px rgba(0,0,0,0.1);
+            --shadow-xl: 0 25px 50px rgba(0,0,0,0.25);
+            
+            --radius-sm: 4px;
+            --radius: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark theme variables */
+        .dark-theme {
+            --primary: #4895ef;
+            --primary-light: #4cc9f0;
+            --secondary: #4361ee;
+            --accent: #f72585;
+            
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #f8f9fa;
+            --text-muted: #adb5bd;
+            --border-color: #343a40;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+            --shadow: 0 4px 6px rgba(0,0,0,0.5);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.5);
+            --shadow-lg: 0 20px 25px rgba(0,0,0,0.5);
+            --shadow-xl: 0 25px 50px rgba(0,0,0,0.75);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 80px;
+            transition: var(--transition-slow);
+            line-height: 1.6;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            transform: rotate(15deg);
+        }
+
+        .instagram-link {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .instagram-link:hover {
+            color: #f72585;
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .instagram-link i {
+            font-size: 1.4rem;
+        }
+
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1100;
+            margin-left: auto;
+        }
+
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .menu-btn.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-btn.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            height: 100%;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition-slow);
+            z-index: 1050;
+            padding-top: 80px;
+            overflow-y: auto;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .sidebar-close:hover {
+            background-color: var(--gray-light);
+            transform: rotate(90deg);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0 16px;
+        }
+
+        .sidebar-menu li {
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            color: var(--text-color);
+            margin-bottom: 4px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .sidebar-menu li:hover {
+            background-color: rgba(var(--primary), 0.1);
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .sidebar-menu li.active {
+            background-color: rgba(var(--primary), 0.2);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .sidebar-menu li i {
+            width: 24px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 20px;
+            padding: 24px;
+        }
+
+        /* Section header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -13px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+            border-radius: var(--radius-full);
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .intro h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        /* Clock Styles */
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .clock-box {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 220px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .clock-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .clock {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .clock-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Calendar Styles */
+        .calendar-container {
+            background: linear-gradient(135deg, rgba(var(--primary), 0.2), rgba(var(--success), 0.1));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .calendar-container:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .calendar-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .calendar-nav-btn {
+            background-color: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .calendar-nav-btn:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .calendar-toggle {
+            background-color: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .calendar-toggle:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .calendar th {
+            padding: 12px;
+            color: var(--primary);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .calendar td {
+            padding: 12px;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+            transition: var(--transition);
+            border-radius: var(--radius);
+            font-weight: 500;
+            word-break: break-word;
+            max-width: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .calendar td:hover {
+            background-color: rgba(var(--primary), 0.1);
+            transform: scale(1.1);
+        }
+
+        .calendar td.today {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 0 0 2px var(--bg-color);
+        }
+
+        .calendar td.today:hover {
+            transform: scale(1.05);
+        }
+
+        /* Count on Me Box */
+        .count-on-me {
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 2rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            transform-style: preserve-3d;
+            perspective: 500px;
+            animation: pulse 2s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .count-on-me::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255,255,255,0.3) 0%,
+                rgba(255,255,255,0) 60%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .credit {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Tab Content Styles */
+        .tab-content {
+            display: none;
+            padding: 24px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            margin-top: 24px;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Word Creation Form */
+        .word-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary), 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+        }
+
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+        }
+
+        .btn-warning:hover {
+            background-color: #e65100;
+        }
+
+        .btn-success {
+            background-color: var(--success);
+        }
+
+        .btn-success:hover {
+            background-color: #0288d1;
+        }
+
+        /* Word List Styles */
+        .word-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .category-box {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1 1 300px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .category-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .word-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .word-item {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-color);
+            flex-direction: column;
+            align-items: flex-start;
+            transition: var(--transition);
+            border-radius: var(--radius);
+        }
+
+        .word-item:hover {
+            background-color: rgba(var(--primary), 0.05);
+        }
+
+        .word-item-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .word-item-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 120px;
+            border-radius: var(--radius);
+            margin-top: 12px;
+            display: none;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .word-item:hover .word-item-image {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .word-item .word-actions {
+            display: none;
+        }
+
+        .word-item:hover .word-actions {
+            display: flex;
+            gap: 8px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .pronounce-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-left: 8px;
+        }
+
+        .pronounce-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .word-item-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .word-translation {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* Search Box */
+        .search-box {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 40px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary), 0.2);
+        }
+
+        .search-box::before {
+            content: '\f002';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Word Detail Modal */
+        .word-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .word-modal-content {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border-color);
+            animation: slideUp 0.4s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-full);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background-color: var(--gray-light);
+            transform: rotate(90deg);
+        }
+
+        .word-detail-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            padding-right: 40px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .word-detail-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: var(--radius-full);
+        }
+
+        .word-detail-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            display: block;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .word-detail-image:hover {
+            transform: scale(1.02);
+        }
+
+        .word-detail-section {
+            margin-bottom: 16px;
+        }
+
+        .word-detail-section h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .word-detail-section p {
+            color: var(--text-color);
+            padding-left: 16px;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Planner Styles */
+        .planner-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .planner-note {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .planner-note:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .planner-note-title {
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-color);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .planner-note-content {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+
+        .planner-note-content p {
+            margin-bottom: 12px;
+        }
+
+        .planner-note-content ul, 
+        .planner-note-content ol {
+            padding-left: 24px;
+            margin-bottom: 12px;
+        }
+
+        .planner-note-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            display: block;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .planner-note-image:hover {
+            transform: scale(1.02);
+        }
+
+        .planner-note-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .planner-editor {
+            margin-top: 32px;
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .editor-toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .editor-toolbar button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            cursor: pointer;
+            min-width: 36px;
+            color: var(--text-color);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .editor-toolbar button:hover {
+            background-color: rgba(var(--primary), 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        #noteContent {
+            width: 100%;
+            min-height: 200px;
+            padding: 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        #noteContent:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary), 0.2);
+        }
+
+        /* Progress Chart Styles */
+        .progress-container {
+            margin-top: 24px;
+        }
+
+        .progress-chart {
+            width: 100%;
+            height: 300px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-scroll-container {
+            display: flex;
+            height: calc(100% - 40px);
+            overflow-x: auto;
+            gap: 24px;
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--bg-color);
+        }
+
+        .progress-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .progress-scroll-container::-webkit-scrollbar-track {
+            background: var(--bg-color);
+            border-radius: var(--radius-full);
+        }
+
+        .progress-scroll-container::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: var(--radius-full);
+        }
+
+        .progress-bars {
+            display: flex;
+            height: 100%;
+            align-items: flex-end;
+            gap: 24px;
+            min-width: 100%;
+        }
+
+        .progress-bar {
+            flex: 0 0 60px;
+            background: linear-gradient(to top, var(--primary), var(--success));
+            position: relative;
+            transition: height 0.5s ease;
+            min-width: 40px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .progress-bar:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .progress-label {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .progress-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .progress-delete-btn {
+            position: absolute;
+            top: -30px;
+            right: 0;
+            background-color: var(--danger);
+            color: white;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            cursor: pointer;
+            display: none;
+            transition: var(--transition);
+        }
+
+        .progress-bar:hover .progress-delete-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .progress-delete-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .progress-form {
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .progress-date {
+            margin-top: 16px;
+        }
+
+        /* Test Styles */
+        .test-container {
+            margin-top: 24px;
+        }
+
+        .test-tabs {
+            display: flex;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .test-tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .test-tab:hover {
+            color: var(--primary);
+        }
+
+        .test-tab.active {
+            border-bottom-color: var(--primary);
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .test-content {
+            display: none;
+        }
+
+        .test-content.active {
+            display: block;
+        }
+
+        .question-item {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .question-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .question-text {
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .options-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .option-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .option-item label {
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .test-timer {
+            text-align: center;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: var(--danger);
+            font-weight: 600;
+            animation: pulse 1s infinite alternate;
+        }
+
+        .test-result {
+            display: none;
+            text-align: center;
+            padding: 24px;
+            background-color: rgba(var(--primary), 0.1);
+            border-radius: var(--radius-lg);
+            margin-top: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .test-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .test-question {
+            margin-bottom: 24px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .test-question-text {
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .test-question-options {
+            margin-left: 24px;
+        }
+
+        .test-question-option {
+            margin-bottom: 12px;
+        }
+
+        .test-question-option input {
+            margin-right: 12px;
+        }
+
+        .test-question-option label {
+            color: var(--text-color);
+        }
+
+        .test-question-blank {
+            display: inline-block;
+            width: 120px;
+            border-bottom: 1px solid var(--text-color);
+            margin: 0 8px;
+        }
+
+        .show-answer-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 12px;
+            transition: var(--transition);
+        }
+
+        .show-answer-btn:hover {
+            background-color: #0288d1;
+            transform: translateY(-2px);
+        }
+
+        /* Settings Styles */
+        .settings-container {
+            margin-top: 24px;
+        }
+
+        .setting-option {
+            margin-bottom: 24px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .setting-option:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .setting-option h3 {
+            margin-bottom: 16px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .theme-colors {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .theme-color {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-color:hover {
+            transform: scale(1.1);
+        }
+
+        .theme-color.selected {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .theme-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .theme-toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--gray);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .theme-toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .theme-toggle-slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .theme-toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Profile Styles */
+        .profile-container {
+            margin-top: 24px;
+        }
+
+        .profile-form {
+            max-width: 500px;
+            background-color: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin: 0 auto;
+        }
+
+        .profile-picture-container {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .profile-picture:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Calculator Styles */
+        .calculator {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            box-shadow: var(--shadow-xl);
+            max-width: 320px;
+            margin: 40px auto;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .calculator-display {
+            background-color: var(--bg-color);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: right;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            height: 80px;
+            overflow: hidden;
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .calculator-key {
+            padding: 16px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: var(--radius);
+            background-color: var(--bg-color);
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-color);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculator-key:hover {
+            background-color: rgba(var(--primary), 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .calculator-key.operator {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .calculator-key.operator:hover {
+            background-color: var(--secondary);
+        }
+
+        .calculator-key.equal {
+            background-color: var(--success);
+            color: white;
+            grid-column: span 2;
+        }
+
+        .calculator-key.equal:hover {
+            background-color: #0288d1;
+        }
+
+        /* Home Button */
+        .home-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: var(--radius-full);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            z-index: 999;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .home-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* File Upload Styles */
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 10px 16px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .file-upload-label:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+
+        .file-upload-preview {
+            max-width: 100%;
+            max-height: 200px;
+            display: none;
+            margin-top: 12px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .file-upload-preview:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        @keyframes shine {
+            to {
+                transform: translateX(100%) rotate(30deg);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .word-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .clock-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .clock-box {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: flex;
+            }
+            
+            .container {
+                margin-top: 70px;
+                padding: 16px;
+            }
+            
+            .sidebar {
+                width: 280px;
+            }
+
+            .intro h1 {
+                font-size: 2rem;
+            }
+            
+            .category-box {
+                flex: 1 1 100%;
+            }
+            
+            .test-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .test-tab {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .calendar td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 16px;
+            }
+            
+            .intro h1 {
+                font-size: 1.8rem;
+            }
+            
+            .intro p {
+                font-size: 1rem;
+            }
+            
+            .planner-note-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .test-actions {
+                flex-direction: column;
+            }
+            
+            .home-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 16px;
+                right: 16px;
+            }
+            
+            .calendar td {
+                padding: 6px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="https://instagram.com/english.lan_" class="logo" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="English Learning Pro" class="logo-img" id="profilePictureHeader">
+            <span>English Learning Pro</span>
+        </a>
+        <div class="menu-btn" id="menuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="https://instagram.com/english.lan_" class="instagram-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span class="instagram-text">english.lan_</span>
+        </a>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <button class="sidebar-close" id="sidebarClose">&times;</button>
+        <ul class="sidebar-menu">
+            <li class="active" id="homeTab"><i class="fas fa-home"></i> Home <span class="word-translation">خانه</span></li>
+            <li id="wordCreationTab"><i class="fas fa-plus-circle"></i> Create Words <span class="word-translation">ساخت لغات</span></li>
+            <li id="wordListTab"><i class="fas fa-list"></i> Word List <span class="word-translation">لیست لغات</span></li>
+            <li id="plannerTab"><i class="fas fa-calendar-alt"></i> Planner <span class="word-translation">برنامه‌ریزی</span></li>
+            <li id="progressTab"><i class="fas fa-chart-line"></i> Progress <span class="word-translation">پیشرفت</span></li>
+            <li id="testTab"><i class="fas fa-question-circle"></i> Tests <span class="word-translation">آزمون‌ها</span></li>
+            <li id="settingsTab"><i class="fas fa-cog"></i> Settings <span class="word-translation">تنظیمات</span></li>
+            <li id="profileTab"><i class="fas fa-user"></i> Profile <span class="word-translation">پروفایل</span></li>
+            <li id="calculatorTab"><i class="fas fa-calculator"></i> Calculator <span class="word-translation">ماشین حساب</span></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Home Tab Content -->
+        <div class="tab-content active" id="homeContent">
+            <div class="intro">
+                <h1>Welcome to English Learning Pro</h1>
+                <p>Your ultimate companion for mastering English language skills. Track your progress, learn new words, and test your knowledge.</p>
+            </div>
+
+            <!-- Clocks -->
+            <div class="clock-container">
+                <div class="clock-box">
+                    <div class="clock" id="iranClock"></div>
+                    <div class="clock-label">Tehran, Iran</div>
+                </div>
+                <div class="clock-box">
+                    <div class="clock" id="nyClock"></div>
+                    <div class="clock-label">New York, USA</div>
+                </div>
+                <div class="clock-box">
+                    <div class="clock" id="londonClock"></div>
+                    <div class="clock-label">London, UK</div>
+                </div>
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <div class="calendar-title" id="calendarTitle">Persian Calendar</div>
+                    <div class="calendar-nav">
+                        <button class="calendar-nav-btn" id="prevMonthBtn"><i class="fas fa-chevron-left"></i></button>
+                        <button class="calendar-toggle" id="calendarToggle">Switch to Gregorian</button>
+                        <button class="calendar-nav-btn" id="nextMonthBtn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <table class="calendar" id="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendarBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Count on Me Box -->
+            <div class="count-on-me">You Can Count On Me!</div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> Contact: 09106708096</p>
+                <p><i class="fab fa-instagram"></i> Instagram: english.lan_</p>
+            </div>
+            <div class="credit">Designed with ❤️ by Daniel Mohammadi</div>
+        </div>
+
+        <!-- Word Creation Tab Content -->
+        <div class="tab-content" id="wordCreationContent">
+            <div class="section-header">
+                <h2 class="section-title">Create New Word</h2>
+            </div>
+            <form id="wordForm" class="word-form">
+                <div class="form-group">
+                    <label for="wordTitle">Word/Title</label>
+                    <input type="text" id="wordTitle" class="form-control" required placeholder="Enter the word">
+                </div>
+                <div class="form-group">
+                    <label for="wordPhonetic">Phonetic</label>
+                    <input type="text" id="wordPhonetic" class="form-control" placeholder="Pronunciation">
+                </div>
+                <div class="form-group">
+                    <label for="wordMeaning">Meaning</label>
+                    <textarea id="wordMeaning" class="form-control" rows="3" placeholder="Word meaning"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wordSynonyms">Synonyms</label>
+                    <input type="text" id="wordSynonyms" class="form-control" placeholder="Similar words">
+                </div>
+                <div class="form-group">
+                    <label for="wordAntonyms">Antonyms</label>
+                    <input type="text" id="wordAntonyms" class="form-control" placeholder="Opposite words">
+                </div>
+                <div class="form-group">
+                    <label for="wordExample">Example Sentence</label>
+                    <textarea id="wordExample" class="form-control" rows="3" placeholder="Example usage"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wordTranslation">Translation</label>
+                    <textarea id="wordTranslation" class="form-control" rows="3" placeholder="Persian translation"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <div class="file-upload">
+                        <label for="wordImageUpload" class="file-upload-label">
+                            <i class="fas fa-image"></i> Choose Image
+                        </label>
+                        <input type="file" id="wordImageUpload" class="file-upload-input" accept="image/*">
+                        <img id="wordImagePreview" class="file-upload-preview">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="wordCategory">Category</label>
+                    <select id="wordCategory" class="form-control">
+                        <option value="verbs">Verbs</option>
+                        <option value="phrasalVerbs">Phrasal Verbs</option>
+                        <option value="grammar">Grammar</option>
+                        <option value="collocations">Collocations</option>
+                        <option value="idioms">Idioms</option>
+                        <option value="slang">Slang</option>
+                    </select>
+                    <input type="text" id="newCategory" class="form-control" placeholder="Or create new category" style="margin-top: 8px;">
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <button type="submit" class="btn">
+                        <i class="fas fa-save"></i> Save Word
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Word List Tab Content -->
+        <div class="tab-content" id="wordListContent">
+            <div class="section-header">
+                <h2 class="section-title">Word List</h2>
+            </div>
+            <div class="search-box">
+                <input type="text" id="wordSearch" placeholder="Search words..." oninput="searchWords()">
+            </div>
+            <div class="word-categories" id="wordCategories">
+                <!-- Categories will be dynamically added here -->
+            </div>
+        </div>
+
+        <!-- Word Detail Modal -->
+        <div class="word-modal" id="wordModal">
+            <div class="word-modal-content">
+                <button class="close-modal" id="closeModal">&times;</button>
+                <h2 class="word-detail-title" id="modalWordTitle"></h2>
+                <img src="" alt="Word Image" class="word-detail-image" id="modalWordImage" style="display: none;">
+                <div id="modalWordContent">
+                    <!-- Word details will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Planner Tab Content -->
+        <div class="tab-content" id="plannerContent">
+            <div class="section-header">
+                <h2 class="section-title">Study Planner</h2>
+            </div>
+            <div class="search-box">
+                <input type="text" id="noteSearch" placeholder="Search notes..." oninput="searchNotes()">
+            </div>
+            <div class="planner-container" id="plannerContainer">
+                <!-- Planner notes will be added here -->
+            </div>
+            
+            <div class="planner-editor">
+                <h3>Create New Note</h3>
+                <div class="editor-toolbar">
+                    <button type="button" onclick="formatText('bold')" title="Bold"><i class="fas fa-bold"></i></button>
+                    <button type="button" onclick="formatText('italic')" title="Italic"><i class="fas fa-italic"></i></button>
+                    <button type="button" onclick="formatText('underline')" title="Underline"><i class="fas fa-underline"></i></button>
+                    <button type="button" onclick="formatText('insertUnorderedList')" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                    <button type="button" onclick="formatText('insertOrderedList')" title="Numbered List"><i class="fas fa-list-ol"></i></button>
+                    <button type="button" onclick="formatText('justifyLeft')" title="Align Left"><i class="fas fa-align-left"></i></button>
+                    <button type="button" onclick="formatText('justifyCenter')" title="Center"><i class="fas fa-align-center"></i></button>
+                    <button type="button" onclick="formatText('justifyRight')" title="Align Right"><i class="fas fa-align-right"></i></button>
+                </div>
+                <input type="text" id="noteTitle" class="form-control" placeholder="Note title" style="margin-bottom: 12px;">
+                <div class="file-upload" style="margin-bottom: 12px;">
+                    <label for="noteImageUpload" class="file-upload-label">
+                        <i class="fas fa-image"></i> Add Image to Note
+                    </label>
+                    <input type="file" id="noteImageUpload" class="file-upload-input" accept="image/*">
+                    <img id="noteImagePreview" class="file-upload-preview">
+                </div>
+                <div id="noteContent" contenteditable="true" placeholder="Write your note here..."></div>
+                <button type="button" class="btn" style="margin-top: 16px;" onclick="saveNote()">
+                    <i class="fas fa-save"></i> Save Note
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Chart Tab Content -->
+        <div class="tab-content" id="progressContent">
+            <div class="section-header">
+                <h2 class="section-title">Progress Chart</h2>
+            </div>
+            <div class="progress-container">
+                <div class="progress-chart">
+                    <div class="progress-scroll-container">
+                        <div class="progress-bars" id="progressBars">
+                            <!-- Progress bars will be added here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-form">
+                    <h3>Add New Progress Item</h3>
+                    <div class="form-group">
+                        <label for="progressTitle">Title</label>
+                        <input type="text" id="progressTitle" class="form-control" placeholder="e.g., Vocabulary Test">
+                    </div>
+                    <div class="form-group">
+                        <label for="progressValue">Progress Value (0-100)</label>
+                        <input type="number" id="progressValue" class="form-control" min="0" max="100" placeholder="Enter percentage">
+                    </div>
+                    <div class="form-group progress-date">
+                        <label for="progressDate">Date</label>
+                        <input type="date" id="progressDate" class="form-control">
+                    </div>
+                    <button type="button" class="btn" onclick="addProgressItem()">
+                        <i class="fas fa-plus"></i> Add Progress
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Tab Content -->
+        <div class="tab-content" id="testContent">
+            <div class="section-header">
+                <h2 class="section-title">Tests</h2>
+            </div>
+            <div class="test-tabs">
+                <div class="test-tab active" data-tab="descriptive">Descriptive</div>
+                <div class="test-tab" data-tab="multipleChoice">Multiple Choice</div>
+                <div class="test-tab" data-tab="fillBlank">Fill in the Blank</div>
+            </div>
+            
+            <!-- Descriptive Test Content -->
+            <div class="test-content active" id="descriptiveContent">
+                <h3>Descriptive Test</h3>
+                <div class="form-group">
+                    <label for="descriptiveQuestion">Question</label>
+                    <textarea id="descriptiveQuestion" class="form-control" rows="3" placeholder="Enter the question"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="descriptiveAnswer">Answer</label>
+                    <textarea id="descriptiveAnswer" class="form-control" rows="3" placeholder="Enter the correct answer"></textarea>
+                </div>
+                <button type="button" class="btn" onclick="saveDescriptiveQuestion()">
+                    <i class="fas fa-save"></i> Save Question
+                </button>
+                
+                <div id="descriptiveQuestionsList" style="margin-top: 24px;">
+                    <!-- Descriptive questions will be listed here -->
+                </div>
+            </div>
+            
+            <!-- Multiple Choice Test Content -->
+            <div class="test-content" id="multipleChoiceContent">
+                <h3>Multiple Choice Test</h3>
+                <div class="form-group">
+                    <label for="mcQuestion">Question</label>
+                    <textarea id="mcQuestion" class="form-control" rows="3" placeholder="Enter the question"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Options</label>
+                    <input type="text" class="form-control mc-option" placeholder="Option 1" style="margin-bottom: 8px;">
+                    <input type="text" class="form-control mc-option" placeholder="Option 2" style="margin-bottom: 8px;">
+                    <input type="text" class="form-control mc-option" placeholder="Option 3" style="margin-bottom: 8px;">
+                    <input type="text" class="form-control mc-option" placeholder="Option 4" style="margin-bottom: 8px;">
+                </div>
+                <div class="form-group">
+                    <label for="mcCorrectAnswer">Correct Answer (1-4)</label>
+                    <input type="number" id="mcCorrectAnswer" class="form-control" min="1" max="4" placeholder="Enter correct option number">
+                </div>
+                <div class="form-group">
+                    <label for="mcTimeLimit">Time Limit (minutes)</label>
+                    <input type="number" id="mcTimeLimit" class="form-control" min="1" max="60" value="5">
+                </div>
+                <button type="button" class="btn" onclick="saveMCQuestion()">
+                    <i class="fas fa-save"></i> Save Question
+                </button>
+                
+                <div id="mcQuestionsList" style="margin-top: 24px;">
+                    <!-- MC questions will be listed here -->
+                </div>
+                
+                <div id="mcTestContainer" style="display: none; margin-top: 32px;">
+                    <h3>Multiple Choice Test</h3>
+                    <div class="test-timer" id="mcTestTimer">Time left: 05:00</div>
+                    <div id="mcTestQuestions">
+                        <!-- Test questions will be added here -->
+                    </div>
+                    <button type="button" class="btn" onclick="submitMCTest()">
+                        <i class="fas fa-paper-plane"></i> Submit Test
+                    </button>
+                </div>
+                
+                <div class="test-result" id="mcTestResult">
+                    <!-- Test results will be shown here -->
+                </div>
+            </div>
+            
+            <!-- Fill in the Blank Test Content -->
+            <div class="test-content" id="fillBlankContent">
+                <h3>Fill in the Blank Test</h3>
+                <div class="form-group">
+                    <label for="fillBlankQuestion">Question (use ___ for blank)</label>
+                    <textarea id="fillBlankQuestion" class="form-control" rows="3" placeholder="Enter the question with blanks"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fillBlankAnswer">Answer</label>
+                    <input type="text" id="fillBlankAnswer" class="form-control" placeholder="Enter the correct answer">
+                </div>
+                <button type="button" class="btn" onclick="saveFillBlankQuestion()">
+                    <i class="fas fa-save"></i> Save Question
+                </button>
+                
+                <div id="fillBlankQuestionsList" style="margin-top: 24px;">
+                    <!-- Fill in the blank questions will be listed here -->
+                </div>
+                
+                <div id="fillBlankTestContainer" style="display: none; margin-top: 32px;">
+                    <h3>Fill in the Blank Test</h3>
+                    <div id="fillBlankTestQuestions">
+                        <!-- Test questions will be added here -->
+                    </div>
+                    <button type="button" class="btn" onclick="submitFillBlankTest()">
+                        <i class="fas fa-paper-plane"></i> Submit Test
+                    </button>
+                    <button type="button" class="btn show-answer-btn" onclick="showFillBlankAnswers()">
+                        <i class="fas fa-lightbulb"></i> Show Answers
+                    </button>
+                </div>
+                
+                <div class="test-result" id="fillBlankTestResult">
+                    <!-- Test results will be shown here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab Content -->
+        <div class="tab-content" id="settingsContent">
+            <div class="section-header">
+                <h2 class="section-title">Settings</h2>
+            </div>
+            <div class="settings-container">
+                <div class="setting-option">
+                    <h3>Language</h3>
+                    <select id="languageSelect" class="form-control">
+                        <option value="en">English</option>
+                        <option value="fa">Persian</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                    </select>
+                </div>
+                
+                <div class="setting-option">
+                    <h3>Theme Color</h3>
+                    <div class="theme-colors">
+                        <div class="theme-color selected" style="background-color: #4361ee;" data-color="4361ee"></div>
+                        <div class="theme-color" style="background-color: #3f37c9;" data-color="3f37c9"></div>
+                        <div class="theme-color" style="background-color: #f72585;" data-color="f72585"></div>
+                        <div class="theme-color" style="background-color: #4cc9f0;" data-color="4cc9f0"></div>
+                        <div class="theme-color" style="background-color: #7209b7;" data-color="7209b7"></div>
+                        <div class="theme-color" style="background-color: #4895ef;" data-color="4895ef"></div>
+                    </div>
+                </div>
+                
+                <div class="setting-option">
+                    <h3>Dark Mode</h3>
+                    <div class="theme-toggle">
+                        <span>Light</span>
+                        <label class="theme-toggle-switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="theme-toggle-slider"></span>
+                        </label>
+                        <span>Dark</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Tab Content -->
+        <div class="tab-content" id="profileContent">
+            <div class="section-header">
+                <h2 class="section-title">Profile</h2>
+            </div>
+            <div class="profile-container">
+                <form class="profile-form">
+                    <div class="profile-picture-container">
+                        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                        <input type="file" id="profilePictureUpload" style="display: none;" accept="image/*">
+                        <button type="button" class="btn" style="margin-top: 16px;" onclick="document.getElementById('profilePictureUpload').click()">
+                            <i class="fas fa-camera"></i> Change Picture
+                        </button>
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profileName">First Name</label>
+                        <input type="text" id="profileName" class="form-control" placeholder="Enter your first name">
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profileLastName">Last Name</label>
+                        <input type="text" id="profileLastName" class="form-control" placeholder="Enter your last name">
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profilePassword">Password</label>
+                        <input type="password" id="profilePassword" class="form-control" placeholder="Enter new password">
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profileBirthYear">Birth Year</label>
+                        <input type="number" id="profileBirthYear" class="form-control" min="1900" max="2023" placeholder="Enter birth year">
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profileBirthMonth">Birth Month</label>
+                        <select id="profileBirthMonth" class="form-control">
+                            <option value="">Select month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="profile-form-group">
+                        <label for="profileBirthDay">Birth Day</label>
+                        <input type="number" id="profileBirthDay" class="form-control" min="1" max="31" placeholder="Enter day">
+                    </div>
+                    
+                    <button type="button" class="btn" onclick="saveProfile()">
+                        <i class="fas fa-save"></i> Save Profile
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Calculator Tab Content -->
+        <div class="tab-content" id="calculatorContent">
+            <div class="section-header">
+                <h2 class="section-title">Calculator</h2>
+            </div>
+            <div class="calculator">
+                <div class="calculator-display" id="calculatorDisplay">0</div>
+                <div class="calculator-keys">
+                    <button class="calculator-key" onclick="calculatorInput('7')">7</button>
+                    <button class="calculator-key" onclick="calculatorInput('8')">8</button>
+                    <button class="calculator-key" onclick="calculatorInput('9')">9</button>
+                    <button class="calculator-key operator" onclick="calculatorInput('/')">÷</button>
+                    <button class="calculator-key" onclick="calculatorInput('4')">4</button>
+                    <button class="calculator-key" onclick="calculatorInput('5')">5</button>
+                    <button class="calculator-key" onclick="calculatorInput('6')">6</button>
+                    <button class="calculator-key operator" onclick="calculatorInput('*')">×</button>
+                    <button class="calculator-key" onclick="calculatorInput('1')">1</button>
+                    <button class="calculator-key" onclick="calculatorInput('2')">2</button>
+                    <button class="calculator-key" onclick="calculatorInput('3')">3</button>
+                    <button class="calculator-key operator" onclick="calculatorInput('-')">-</button>
+                    <button class="calculator-key" onclick="calculatorInput('0')">0</button>
+                    <button class="calculator-key" onclick="calculatorInput('.')">.</button>
+                    <button class="calculator-key" onclick="calculatorClear()">C</button>
+                    <button class="calculator-key operator" onclick="calculatorInput('+')">+</button>
+                    <button class="calculator-key equal" onclick="calculatorCalculate()">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home Button -->
+    <button class="home-btn" id="homeBtn" title="Go to Home">
+        <i class="fas fa-home"></i>
+    </button>
+
+    <script>
+        // Global variables
+        let wordsData = {};
+        let notesData = [];
+        let progressData = [];
+        let testData = {
+            descriptive: [],
+            multipleChoice: [],
+            fillBlank: []
+        };
+        let currentTab = 'home';
+        let calendarMode = 'persian'; // 'persian' or 'gregorian'
+        let calculatorDisplayValue = '0';
+        let currentCalendarMonth = new Date().getMonth();
+        let currentCalendarYear = new Date().getFullYear();
+        let currentPersianDate = getCurrentPersianDate();
+        let currentPersianMonth = currentPersianDate.month;
+        let currentPersianYear = currentPersianDate.year;
+        let mcTestInterval;
+        let mcTestTimeLeft = 0;
+        let isDarkMode = false;
+        let editingNoteId = null;
+        let noteImageFile = null;
+        let wordImageFile = null;
+
+        // DOM Elements
+        const sidebar = document.getElementById('sidebar');
+        const menuBtn = document.getElementById('menuBtn');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const homeBtn = document.getElementById('homeBtn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabLinks = document.querySelectorAll('.sidebar-menu li');
+        const iranClock = document.getElementById('iranClock');
+        const nyClock = document.getElementById('nyClock');
+        const londonClock = document.getElementById('londonClock');
+        const calendarTitle = document.getElementById('calendarTitle');
+        const calendarToggle = document.getElementById('calendarToggle');
+        const prevMonthBtn = document.getElementById('prevMonthBtn');
+        const nextMonthBtn = document.getElementById('nextMonthBtn');
+        const calendarBody = document.getElementById('calendarBody');
+        const wordForm = document.getElementById('wordForm');
+        const wordCategories = document.getElementById('wordCategories');
+        const wordModal = document.getElementById('wordModal');
+        const closeModal = document.getElementById('closeModal');
+        const plannerContainer = document.getElementById('plannerContainer');
+        const progressBars = document.getElementById('progressBars');
+        const testTabs = document.querySelectorAll('.test-tab');
+        const testContents = document.querySelectorAll('.test-content');
+        const themeColors = document.querySelectorAll('.theme-color');
+        const calculatorDisplay = document.getElementById('calculatorDisplay');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const languageSelect = document.getElementById('languageSelect');
+        const profilePictureHeader = document.getElementById('profilePictureHeader');
+        const wordImageUpload = document.getElementById('wordImageUpload');
+        const wordImagePreview = document.getElementById('wordImagePreview');
+        const noteImageUpload = document.getElementById('noteImageUpload');
+        const noteImagePreview = document.getElementById('noteImagePreview');
+
+        // Initialize the app
+        function init() {
+            // Load saved data from localStorage
+            loadData();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Initialize clocks
+            updateClocks();
+            setInterval(updateClocks, 1000);
+            
+            // Initialize calendar
+            renderCalendar();
+            
+            // Initialize word categories
+            renderWordCategories();
+            
+            // Initialize planner notes
+            renderNotes();
+            
+            // Initialize progress chart
+            renderProgressChart();
+            
+            // Initialize test questions
+            renderTestQuestions();
+            
+            // Set initial theme
+            updateTheme();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Sidebar toggle
+            menuBtn.addEventListener('click', toggleSidebar);
+            sidebarClose.addEventListener('click', toggleSidebar);
+            
+            // Home button
+            homeBtn.addEventListener('click', () => {
+                showTab('home');
+                toggleSidebar();
+            });
+            
+            // Tab navigation
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const tabId = e.currentTarget.id.replace('Tab', '');
+                    showTab(tabId);
+                    toggleSidebar();
+                    
+                    // Update active tab in sidebar
+                    tabLinks.forEach(item => item.classList.remove('active'));
+                    e.currentTarget.classList.add('active');
+                });
+            });
+            
+            // Calendar toggle and navigation
+            calendarToggle.addEventListener('click', toggleCalendarMode);
+            prevMonthBtn.addEventListener('click', navigateCalendarMonth);
+            nextMonthBtn.addEventListener('click', navigateCalendarMonth);
+            
+            // Word form submission
+            wordForm.addEventListener('submit', saveWord);
+            
+            // Word modal close
+            closeModal.addEventListener('click', () => {
+                wordModal.style.display = 'none';
+            });
+            
+            // Test tab switching
+            testTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.getAttribute('data-tab');
+                    switchTestTab(tabName);
+                });
+            });
+            
+            // Theme color selection
+            themeColors.forEach(color => {
+                color.addEventListener('click', () => {
+                    themeColors.forEach(c => c.classList.remove('selected'));
+                    color.classList.add('selected');
+                    const colorCode = color.getAttribute('data-color');
+                    document.documentElement.style.setProperty('--primary', `#${colorCode}`);
+                    localStorage.setItem('primaryColor', colorCode);
+                });
+            });
+            
+            // Dark mode toggle
+            darkModeToggle.addEventListener('change', toggleDarkMode);
+            
+            // Language select
+            languageSelect.addEventListener('change', changeLanguage);
+            
+            // Profile picture upload
+            document.getElementById('profilePictureUpload').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById('profilePicture').src = event.target.result;
+                        profilePictureHeader.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Word image upload
+            wordImageUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    wordImageFile = file;
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        wordImagePreview.src = event.target.result;
+                        wordImagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Note image upload
+            noteImageUpload.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    noteImageFile = file;
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        noteImagePreview.src = event.target.result;
+                        noteImagePreview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Click outside modal to close
+            window.addEventListener('click', (e) => {
+                if (e.target === wordModal) {
+                    wordModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Toggle sidebar
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        // Show specific tab content
+        function showTab(tabId) {
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(`${tabId}Content`).classList.add('active');
+            
+            // Update current tab
+            currentTab = tabId;
+            
+            // Special cases
+            if (tabId === 'wordList') {
+                renderWordCategories();
+            } else if (tabId === 'planner') {
+                renderNotes();
+            } else if (tabId === 'progress') {
+                renderProgressChart();
+            } else if (tabId === 'test') {
+                renderTestQuestions();
+            }
+        }
+
+        // Update clocks with correct time zones
+        function updateClocks() {
+            // Tehran time (UTC+3:30)
+            const tehranTime = new Date().toLocaleTimeString('en-US', {
+                timeZone: 'Asia/Tehran',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            iranClock.textContent = tehranTime;
+            
+            // New York time (UTC-4 or UTC-5 depending on DST)
+            const nyTime = new Date().toLocaleTimeString('en-US', {
+                timeZone: 'America/New_York',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            nyClock.textContent = nyTime;
+            
+            // London time (UTC+0 or UTC+1 depending on DST)
+            const londonTime = new Date().toLocaleTimeString('en-US', {
+                timeZone: 'Europe/London',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            londonClock.textContent = londonTime;
+        }
+
+        // Toggle calendar mode between Persian and Gregorian
+        function toggleCalendarMode() {
+            calendarMode = calendarMode === 'persian' ? 'gregorian' : 'persian';
+            renderCalendar();
+        }
+
+        // Navigate calendar months
+        function navigateCalendarMonth(e) {
+            if (calendarMode === 'gregorian') {
+                if (e.currentTarget.id === 'prevMonthBtn') {
+                    currentCalendarMonth--;
+                    if (currentCalendarMonth < 0) {
+                        currentCalendarMonth = 11;
+                        currentCalendarYear--;
+                    }
+                } else {
+                    currentCalendarMonth++;
+                    if (currentCalendarMonth > 11) {
+                        currentCalendarMonth = 0;
+                        currentCalendarYear++;
+                    }
+                }
+            } else {
+                if (e.currentTarget.id === 'prevMonthBtn') {
+                    currentPersianMonth--;
+                    if (currentPersianMonth < 1) {
+                        currentPersianMonth = 12;
+                        currentPersianYear--;
+                    }
+                } else {
+                    currentPersianMonth++;
+                    if (currentPersianMonth > 12) {
+                        currentPersianMonth = 1;
+                        currentPersianYear++;
+                    }
+                }
+            }
+            renderCalendar();
+        }
+
+        // Render calendar based on current mode
+        function renderCalendar() {
+            if (calendarMode === 'persian') {
+                renderPersianCalendar();
+                calendarTitle.textContent = `Persian Calendar ${currentPersianYear}/${currentPersianMonth}`;
+                calendarToggle.textContent = 'Switch to Gregorian';
+            } else {
+                renderGregorianCalendar();
+                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                calendarTitle.textContent = `Gregorian Calendar ${monthNames[currentCalendarMonth]} ${currentCalendarYear}`;
+                calendarToggle.textContent = 'Switch to Persian';
+            }
+        }
+
+        // Get current Persian date
+        function getCurrentPersianDate() {
+            // This uses the Persian calendar algorithm
+            const gregDate = new Date();
+            const gYear = gregDate.getFullYear();
+            const gMonth = gregDate.getMonth() + 1;
+            const gDay = gregDate.getDate();
+            
+            // Persian calendar constants
+            const pYear = gYear - 621;
+            const pArray = [0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+            
+            // Calculate Persian month and day
+            let pMonth, pDay;
+            if (gMonth > 2 || (gMonth === 2 && gDay > 20)) {
+                // After Farvardin 1st
+                if (gDay > 20) {
+                    pDay = gDay - 20;
+                    pMonth = gMonth - 1;
+                } else {
+                    pDay = gDay + 10;
+                    pMonth = gMonth - 2;
+                }
+            } else {
+                // Before Farvardin 1st
+                if (gMonth === 1) {
+                    pDay = gDay + 10;
+                    pMonth = 10;
+                } else {
+                    pDay = gDay + 11;
+                    pMonth = 11;
+                }
+            }
+            
+            // Adjust for leap years
+            if ((pYear % 4 === 3 && pMonth === 12 && pDay === 30) || 
+                (pYear % 4 !== 3 && pMonth === 12 && pDay === 29)) {
+                pMonth = 1;
+                pDay = 1;
+            }
+            
+            return { year: pYear, month: pMonth, day: pDay };
+        }
+
+        // Render Persian calendar
+        function renderPersianCalendar() {
+            const persianMonths = [
+                "Farvardin", "Ordibehesht", "Khordad", 
+                "Tir", "Mordad", "Shahrivar", 
+                "Mehr", "Aban", "Azar", 
+                "Dey", "Bahman", "Esfand"
+            ];
+            
+            const monthName = persianMonths[currentPersianMonth - 1];
+            const today = getCurrentPersianDate();
+            
+            // Clear previous calendar
+            calendarBody.innerHTML = '';
+            
+            // Create header row
+            const headerRow = document.createElement('tr');
+            ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+                const th = document.createElement('th');
+                th.textContent = day;
+                headerRow.appendChild(th);
+            });
+            calendarBody.appendChild(headerRow);
+            
+            // Calculate first day of month
+            const firstDay = new Date(
+                currentPersianYear + 621, 
+                currentPersianMonth < 7 ? currentPersianMonth + 5 : currentPersianMonth - 7,
+                1
+            ).getDay();
+            
+            // Days in Persian month
+            let daysInMonth;
+            if (currentPersianMonth <= 6) {
+                daysInMonth = 31;
+            } else if (currentPersianMonth <= 11) {
+                daysInMonth = 30;
+            } else {
+                // Check if it's a leap year (Esfand has 30 days in leap years)
+                daysInMonth = (currentPersianYear % 4 === 3) ? 30 : 29;
+            }
+            
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                // Stop making rows if we've run out of days
+                if (date > daysInMonth) break;
+                
+                const row = document.createElement('tr');
+                
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        // Empty cells before first day
+                        cell.textContent = '';
+                    } else if (date > daysInMonth) {
+                        // Empty cells after last day
+                        cell.textContent = '';
+                    } else {
+                        cell.textContent = date;
+                        if (date === today.day && currentPersianMonth === today.month && currentPersianYear === today.year) {
+                            cell.classList.add('today');
+                        }
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                
+                calendarBody.appendChild(row);
+            }
+        }
+
+        // Render Gregorian calendar
+        function renderGregorianCalendar() {
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            // Get first day of month and total days in month
+            const firstDay = new Date(currentCalendarYear, currentCalendarMonth, 1).getDay();
+            const daysInMonth = new Date(currentCalendarYear, currentCalendarMonth + 1, 0).getDate();
+            const today = new Date();
+            
+            // Clear previous calendar
+            calendarBody.innerHTML = '';
+            
+            // Create header row
+            const headerRow = document.createElement('tr');
+            ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+                const th = document.createElement('th');
+                th.textContent = day;
+                headerRow.appendChild(th);
+            });
+            calendarBody.appendChild(headerRow);
+            
+            let date = 1;
+            for (let i = 0; i < 6; i++) {
+                // Stop making rows if we've run out of days
+                if (date > daysInMonth) break;
+                
+                const row = document.createElement('tr');
+                
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        // Empty cells before first day
+                        cell.textContent = '';
+                    } else if (date > daysInMonth) {
+                        // Empty cells after last day
+                        cell.textContent = '';
+                    } else {
+                        cell.textContent = date;
+                        if (date === today.getDate() && currentCalendarMonth === today.getMonth() && currentCalendarYear === today.getFullYear()) {
+                            cell.classList.add('today');
+                        }
+                        date++;
+                    }
+                    row.appendChild(cell);
+                }
+                
+                calendarBody.appendChild(row);
+            }
+        }
+
+        // Save word to dictionary
+        function saveWord(e) {
+            e.preventDefault();
+            
+            const wordTitle = document.getElementById('wordTitle').value.trim();
+            if (!wordTitle) {
+                alert('Please enter a word/title');
+                return;
+            }
+            
+            const wordData = {
+                title: wordTitle,
+                phonetic: document.getElementById('wordPhonetic').value.trim(),
+                meaning: document.getElementById('wordMeaning').value.trim(),
+                synonyms: document.getElementById('wordSynonyms').value.trim(),
+                antonyms: document.getElementById('wordAntonyms').value.trim(),
+                example: document.getElementById('wordExample').value.trim(),
+                translation: document.getElementById('wordTranslation').value.trim(),
+                date: new Date().toLocaleDateString('fa-IR')
+            };
+            
+            // Add image if uploaded
+            if (wordImageFile) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    wordData.image = event.target.result;
+                    saveWordToCategory(wordData);
+                };
+                reader.readAsDataURL(wordImageFile);
+            } else {
+                saveWordToCategory(wordData);
+            }
+        }
+
+        function saveWordToCategory(wordData) {
+            // Get category
+            let category = document.getElementById('wordCategory').value;
+            const newCategory = document.getElementById('newCategory').value.trim();
+            if (newCategory) {
+                category = newCategory.toLowerCase().replace(/\s+/g, '-');
+                document.getElementById('newCategory').value = '';
+            }
+            
+            // Initialize category if it doesn't exist
+            if (!wordsData[category]) {
+                wordsData[category] = [];
+            }
+            
+            // Check if word already exists in this category
+            const wordExists = wordsData[category].some(word => word.title.toLowerCase() === wordData.title.toLowerCase());
+            if (wordExists) {
+                alert(`"${wordData.title}" already exists in the ${formatCategoryName(category)} category!`);
+                return;
+            }
+            
+            // Add word to category
+            wordsData[category].push(wordData);
+            
+            // Save to localStorage
+            saveData();
+            
+            // Reset form
+            wordForm.reset();
+            wordImagePreview.style.display = 'none';
+            wordImageFile = null;
+            
+            // Show success message
+            alert(`"${wordData.title}" has been saved to ${formatCategoryName(category)} category!`);
+            
+            // Update word list if we're on that tab
+            if (currentTab === 'wordList') {
+                renderWordCategories();
+            }
+        }
+
+        // Render word categories
+        function renderWordCategories() {
+            wordCategories.innerHTML = '';
+            
+            if (Object.keys(wordsData).length === 0) {
+                wordCategories.innerHTML = '<p>No words saved yet. Create your first word!</p>';
+                return;
+            }
+            
+            for (const category in wordsData) {
+                if (wordsData[category].length > 0) {
+                    const categoryBox = document.createElement('div');
+                    categoryBox.className = 'category-box';
+                    categoryBox.innerHTML = `
+                        <div class="category-title">
+                            <span>${formatCategoryName(category)}</span>
+                            <span>(${wordsData[category].length} words)</span>
+                        </div>
+                        <ul class="word-list">
+                            ${wordsData[category].map(word => `
+                                <li class="word-item" data-category="${category}" data-title="${word.title}">
+                                    <div class="word-item-header">
+                                        <div class="word-item-title">
+                                            <span>${word.title}</span>
+                                            <button class="pronounce-btn" onclick="pronounceWord('${word.title}')" title="Pronounce">
+                                                <i class="fas fa-volume-up"></i>
+                                            </button>
+                                        </div>
+                                        <div class="word-actions">
+                                            <button class="btn btn-sm" onclick="viewWordDetail('${category}', '${word.title}')">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-danger" onclick="deleteWord('${category}', '${word.title}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    ${word.translation ? `<div class="word-translation">${word.translation}</div>` : ''}
+                                    ${word.image ? `<img src="${word.image}" class="word-item-image">` : ''}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                    wordCategories.appendChild(categoryBox);
+                }
+            }
+        }
+
+        // Pronounce word using Web Speech API
+        function pronounceWord(word) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(word);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Text-to-speech is not supported in your browser');
+            }
+        }
+
+        // Search words
+        function searchWords() {
+            const searchTerm = document.getElementById('wordSearch').value.toLowerCase();
+            const wordItems = document.querySelectorAll('.word-item');
+            
+            wordItems.forEach(item => {
+                const wordTitle = item.getAttribute('data-title').toLowerCase();
+                if (wordTitle.includes(searchTerm)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Search notes
+        function searchNotes() {
+            const searchTerm = document.getElementById('noteSearch').value.toLowerCase();
+            const notes = document.querySelectorAll('.planner-note');
+            
+            notes.forEach(note => {
+                const title = note.querySelector('.planner-note-title span:first-child').textContent.toLowerCase();
+                const content = note.querySelector('.planner-note-content').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    note.style.display = 'block';
+                } else {
+                    note.style.display = 'none';
+                }
+            });
+        }
+
+        // Format category name for display
+        function formatCategoryName(category) {
+            return category.split('-').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }
+
+        // View word detail
+        function viewWordDetail(category, title) {
+            // Find the word in our data
+            const word = wordsData[category].find(w => w.title === title);
+            
+            if (word) {
+                // Update modal content
+                document.getElementById('modalWordTitle').textContent = word.title;
+                
+                const modalContent = document.getElementById('modalWordContent');
+                modalContent.innerHTML = `
+                    ${word.image ? `<img src="${word.image}" class="word-detail-image" id="modalWordImage" style="display: block;">` : ''}
+                    <div class="word-detail-section">
+                        <h3>Phonetic:</h3>
+                        <p>${word.phonetic || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Meaning:</h3>
+                        <p>${word.meaning || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Synonyms:</h3>
+                        <p>${word.synonyms || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Antonyms:</h3>
+                        <p>${word.antonyms || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Example:</h3>
+                        <p>${word.example || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Translation:</h3>
+                        <p>${word.translation || 'N/A'}</p>
+                    </div>
+                    <div class="word-detail-section">
+                        <h3>Date Added:</h3>
+                        <p>${word.date || 'N/A'}</p>
+                    </div>
+                    <button class="btn" onclick="pronounceWord('${word.title}')">
+                        <i class="fas fa-volume-up"></i> Pronounce Word
+                    </button>
+                `;
+                
+                // Show modal
+                wordModal.style.display = 'flex';
+            }
+        }
+
+        // Delete word
+        function deleteWord(category, title) {
+            if (confirm(`Are you sure you want to delete "${title}" from ${formatCategoryName(category)}?`)) {
+                wordsData[category] = wordsData[category].filter(word => word.title !== title);
+                
+                // Remove category if empty
+                if (wordsData[category].length === 0) {
+                    delete wordsData[category];
+                }
+                
+                // Save to localStorage
+                saveData();
+                
+                // Re-render word list
+                renderWordCategories();
+            }
+        }
+
+        // Format text in planner
+        function formatText(command, value = null) {
+            document.execCommand(command, false, value);
+            document.getElementById('noteContent').focus();
+        }
+
+        // Save note to planner
+        function saveNote() {
+            const title = document.getElementById('noteTitle').value.trim();
+            const content = document.getElementById('noteContent').innerHTML.trim();
+            
+            if (!title || !content) {
+                alert('Please enter both title and content');
+                return;
+            }
+            
+            if (editingNoteId) {
+                // Update existing note
+                const noteIndex = notesData.findIndex(note => note.id === editingNoteId);
+                if (noteIndex !== -1) {
+                    notesData[noteIndex].title = title;
+                    notesData[noteIndex].content = content;
+                    notesData[noteIndex].date = new Date().toLocaleString();
+                    
+                    // Update image if uploaded
+                    if (noteImageFile) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            notesData[noteIndex].image = event.target.result;
+                            saveData();
+                            renderNotes();
+                            resetNoteForm();
+                        };
+                        reader.readAsDataURL(noteImageFile);
+                    } else {
+                        saveData();
+                        renderNotes();
+                        resetNoteForm();
+                    }
+                }
+            } else {
+                // Create new note
+                const note = {
+                    id: Date.now(),
+                    title,
+                    content,
+                    date: new Date().toLocaleString()
+                };
+                
+                // Add image if uploaded
+                if (noteImageFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        note.image = event.target.result;
+                        notesData.push(note);
+                        saveData();
+                        renderNotes();
+                        resetNoteForm();
+                    };
+                    reader.readAsDataURL(noteImageFile);
+                } else {
+                    notesData.push(note);
+                    saveData();
+                    renderNotes();
+                    resetNoteForm();
+                }
+            }
+        }
+
+        // Reset note form
+        function resetNoteForm() {
+            document.getElementById('noteTitle').value = '';
+            document.getElementById('noteContent').innerHTML = '';
+            noteImagePreview.style.display = 'none';
+            noteImageFile = null;
+            editingNoteId = null;
+        }
+
+        // Edit note
+        function editNote(id) {
+            const note = notesData.find(n => n.id === id);
+            if (note) {
+                document.getElementById('noteTitle').value = note.title;
+                document.getElementById('noteContent').innerHTML = note.content;
+                
+                if (note.image) {
+                    noteImagePreview.src = note.image;
+                    noteImagePreview.style.display = 'block';
+                } else {
+                    noteImagePreview.style.display = 'none';
+                }
+                
+                editingNoteId = id;
+                document.getElementById('noteTitle').focus();
+            }
+        }
+
+        // Render planner notes
+        function renderNotes() {
+            plannerContainer.innerHTML = '';
+            
+            if (notesData.length === 0) {
+                plannerContainer.innerHTML = '<p>No notes yet. Create your first note!</p>';
+                return;
+            }
+            
+            notesData.forEach(note => {
+                const noteElement = document.createElement('div');
+                noteElement.className = 'planner-note';
+                noteElement.innerHTML = `
+                    <div class="planner-note-title">
+                        <span>${note.title}</span>
+                        <span>${note.date}</span>
+                    </div>
+                    ${note.image ? `<img src="${note.image}" class="planner-note-image">` : ''}
+                    <div class="planner-note-content">${note.content}</div>
+                    <div class="planner-note-actions">
+                        <button class="btn btn-warning" onclick="editNote(${note.id})">
+                            <i class="fas fa-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteNote(${note.id})">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                `;
+                plannerContainer.appendChild(noteElement);
+            });
+        }
+
+        // Delete note
+        function deleteNote(id) {
+            if (confirm('Are you sure you want to delete this note?')) {
+                notesData = notesData.filter(note => note.id !== id);
+                saveData();
+                renderNotes();
+            }
+        }
+
+        // Add progress item
+        function addProgressItem() {
+            const title = document.getElementById('progressTitle').value.trim();
+            const value = parseInt(document.getElementById('progressValue').value);
+            const date = document.getElementById('progressDate').value;
+            
+            if (!title || isNaN(value) || value < 0 || value > 100 || !date) {
+                alert('Please enter valid title, progress value (0-100) and date');
+                return;
+            }
+            
+            // Create new progress item
+            const item = {
+                id: Date.now(),
+                title,
+                value,
+                date
+            };
+            
+            // Add to progress array
+            progressData.push(item);
+            
+            // Save to localStorage
+            saveData();
+            
+            // Reset form
+            document.getElementById('progressTitle').value = '';
+            document.getElementById('progressValue').value = '';
+            document.getElementById('progressDate').value = '';
+            
+            // Render progress chart
+            renderProgressChart();
+        }
+
+        // Delete progress item
+        function deleteProgressItem(id) {
+            if (confirm('Are you sure you want to delete this progress item?')) {
+                progressData = progressData.filter(item => item.id !== id);
+                saveData();
+                renderProgressChart();
+            }
+        }
+
+        // Render progress chart
+        function renderProgressChart() {
+            progressBars.innerHTML = '';
+            
+            if (progressData.length === 0) {
+                progressBars.innerHTML = '<p>No progress data yet. Add your first progress item!</p>';
+                return;
+            }
+            
+            // Sort by date
+            progressData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            // Limit to 40 items for better performance
+            const itemsToShow = progressData.slice(-40);
+            
+            itemsToShow.forEach(item => {
+                const barContainer = document.createElement('div');
+                barContainer.className = 'progress-bar';
+                barContainer.style.height = `${item.value}%`;
+                barContainer.innerHTML = `
+                    <button class="progress-delete-btn" onclick="deleteProgressItem(${item.id})" title="Delete">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="progress-value">${item.value}%</div>
+                    <div class="progress-label">${item.title}<br>${formatDate(item.date)}</div>
+                `;
+                progressBars.appendChild(barContainer);
+            });
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString();
+        }
+
+        // Switch between test tabs
+        function switchTestTab(tabName) {
+            // Update active tab
+            testTabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabName) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Update active content
+            testContents.forEach(content => {
+                if (content.id === `${tabName}Content`) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+        }
+
+        // Save descriptive question
+        function saveDescriptiveQuestion() {
+            const question = document.getElementById('descriptiveQuestion').value.trim();
+            const answer = document.getElementById('descriptiveAnswer').value.trim();
+            
+            if (!question || !answer) {
+                alert('Please enter both question and answer');
+                return;
+            }
+            
+            // Create new question
+            const newQuestion = {
+                id: Date.now(),
+                question,
+                answer
+            };
+            
+            // Add to test data
+            testData.descriptive.push(newQuestion);
+            
+            // Save to localStorage
+            saveData();
+            
+            // Reset form
+            document.getElementById('descriptiveQuestion').value = '';
+            document.getElementById('descriptiveAnswer').value = '';
+            
+            // Render questions
+            renderTestQuestions();
+        }
+
+        // Save multiple choice question
+        function saveMCQuestion() {
+            const question = document.getElementById('mcQuestion').value.trim();
+            const options = Array.from(document.querySelectorAll('.mc-option')).map(opt => opt.value.trim());
+            const correctAnswer = parseInt(document.getElementById('mcCorrectAnswer').value);
+            const timeLimit = parseInt(document.getElementById('mcTimeLimit').value);
+            
+            if (!question || options.some(opt => !opt) || isNaN(correctAnswer) || correctAnswer < 1 || correctAnswer > 4 || isNaN(timeLimit)) {
+                alert('Please fill all fields with valid values');
+                return;
+            }
+            
+            // Create new question
+            const newQuestion = {
+                id: Date.now(),
+                question,
+                options,
+                correctAnswer,
+                timeLimit
+            };
+            
+            // Add to test data
+            testData.multipleChoice.push(newQuestion);
+            
+            // Save to localStorage
+            saveData();
+            
+            // Reset form
+            document.getElementById('mcQuestion').value = '';
+            document.querySelectorAll('.mc-option').forEach(opt => opt.value = '');
+            document.getElementById('mcCorrectAnswer').value = '';
+            document.getElementById('mcTimeLimit').value = '5';
+            
+            // Render questions
+            renderTestQuestions();
+        }
+
+        // Start multiple choice test
+        function startMCTest() {
+            if (testData.multipleChoice.length === 0) {
+                alert('No multiple choice questions available. Please create some questions first.');
+                return;
+            }
+            
+            // Hide question list and show test container
+            document.getElementById('mcQuestionsList').style.display = 'none';
+            document.getElementById('mcTestContainer').style.display = 'block';
+            document.getElementById('mcTestResult').style.display = 'none';
+            
+            // Set up timer
+            mcTestTimeLeft = testData.multipleChoice[0].timeLimit * 60;
+            updateMCTestTimer();
+            mcTestInterval = setInterval(updateMCTestTimer, 1000);
+            
+            // Display questions
+            const testQuestionsContainer = document.getElementById('mcTestQuestions');
+            testQuestionsContainer.innerHTML = '';
+            
+            testData.multipleChoice.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'test-question';
+                questionElement.innerHTML = `
+                    <div class="test-question-text">${index + 1}. ${question.question}</div>
+                    <div class="test-question-options">
+                        ${question.options.map((option, i) => `
+                            <div class="test-question-option">
+                                <input type="radio" name="mc_${question.id}" id="mc_${question.id}_${i}" value="${i + 1}">
+                                <label for="mc_${question.id}_${i}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                testQuestionsContainer.appendChild(questionElement);
+            });
+        }
+
+        // Update multiple choice test timer
+        function updateMCTestTimer() {
+            const minutes = Math.floor(mcTestTimeLeft / 60);
+            const seconds = mcTestTimeLeft % 60;
+            document.getElementById('mcTestTimer').textContent = `Time left: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (mcTestTimeLeft <= 0) {
+                clearInterval(mcTestInterval);
+                submitMCTest();
+            } else {
+                mcTestTimeLeft--;
+            }
+        }
+
+        // Submit multiple choice test
+        function submitMCTest() {
+            clearInterval(mcTestInterval);
+            
+            let score = 0;
+            testData.multipleChoice.forEach(question => {
+                const selectedOption = document.querySelector(`input[name="mc_${question.id}"]:checked`);
+                if (selectedOption && parseInt(selectedOption.value) === question.correctAnswer) {
+                    score++;
+                }
+            });
+            
+            const percentage = Math.round((score / testData.multipleChoice.length) * 100);
+            const resultClass = percentage >= 70 ? 'success' : percentage >= 50 ? 'warning' : 'danger';
+            
+            // Show results
+            document.getElementById('mcTestContainer').style.display = 'none';
+            const resultContainer = document.getElementById('mcTestResult');
+            resultContainer.style.display = 'block';
+            resultContainer.innerHTML = `
+                <h3>Test Results</h3>
+                <p>You scored ${score} out of ${testData.multipleChoice.length} (${percentage}%)</p>
+                <div class="progress" style="height: 20px; margin: 20px 0; background-color: #e9ecef; border-radius: 4px;">
+                    <div class="progress-bar bg-${resultClass}" role="progressbar" style="width: ${percentage}%" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <button class="btn" onclick="retakeMCTest()">
+                    <i class="fas fa-redo"></i> Retake Test
+                </button>
+                <button class="btn btn-success" onclick="backToMCQuestions()">
+                    <i class="fas fa-list"></i> Back to Questions
+                </button>
+            `;
+        }
+
+        // Retake multiple choice test
+        function retakeMCTest() {
+            startMCTest();
+        }
+
+        // Back to multiple choice questions
+        function backToMCQuestions() {
+            document.getElementById('mcTestContainer').style.display = 'none';
+            document.getElementById('mcTestResult').style.display = 'none';
+            document.getElementById('mcQuestionsList').style.display = 'block';
+        }
+
+        // Save fill in the blank question
+        function saveFillBlankQuestion() {
+            const question = document.getElementById('fillBlankQuestion').value.trim();
+            const answer = document.getElementById('fillBlankAnswer').value.trim();
+            
+            if (!question || !answer) {
+                alert('Please enter both question and answer');
+                return;
+            }
+            
+            // Create new question
+            const newQuestion = {
+                id: Date.now(),
+                question,
+                answer
+            };
+            
+            // Add to test data
+            testData.fillBlank.push(newQuestion);
+            
+            // Save to localStorage
+            saveData();
+            
+            // Reset form
+            document.getElementById('fillBlankQuestion').value = '';
+            document.getElementById('fillBlankAnswer').value = '';
+            
+            // Render questions
+            renderTestQuestions();
+        }
+
+        // Start fill in the blank test
+        function startFillBlankTest() {
+            if (testData.fillBlank.length === 0) {
+                alert('No fill in the blank questions available. Please create some questions first.');
+                return;
+            }
+            
+            // Hide question list and show test container
+            document.getElementById('fillBlankQuestionsList').style.display = 'none';
+            document.getElementById('fillBlankTestContainer').style.display = 'block';
+            document.getElementById('fillBlankTestResult').style.display = 'none';
+            
+            // Display questions
+            const testQuestionsContainer = document.getElementById('fillBlankTestQuestions');
+            testQuestionsContainer.innerHTML = '';
+            
+            testData.fillBlank.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.className = 'test-question';
+                
+                // Split question at blanks and create input fields
+                const parts = question.question.split('___');
+                let questionHTML = `<div class="test-question-text">${index + 1}. `;
+                
+                parts.forEach((part, i) => {
+                    questionHTML += part;
+                    if (i < parts.length - 1) {
+                        questionHTML += `<input type="text" class="form-control fill-blank-input" data-answer="${question.answer}" style="display: inline-block; width: 150px; margin: 0 5px;">`;
+                    }
+                });
+                
+                questionHTML += `</div>`;
+                questionElement.innerHTML = questionHTML;
+                testQuestionsContainer.appendChild(questionElement);
+            });
+        }
+
+        // Show answers for fill in the blank test
+        function showFillBlankAnswers() {
+            const inputs = document.querySelectorAll('.fill-blank-input');
+            
+            inputs.forEach(input => {
+                input.value = input.dataset.answer;
+                input.style.borderColor = 'var(--success)';
+            });
+        }
+
+        // Submit fill in the blank test
+        function submitFillBlankTest() {
+            let score = 0;
+            const inputs = document.querySelectorAll('.fill-blank-input');
+            
+            inputs.forEach(input => {
+                if (input.value.trim().toLowerCase() === input.dataset.answer.toLowerCase()) {
+                    score++;
+                    input.style.borderColor = 'var(--success)';
+                } else {
+                    input.style.borderColor = 'var(--danger)';
+                }
+            });
+            
+            const percentage = Math.round((score / inputs.length) * 100);
+            const resultClass = percentage >= 70 ? 'success' : percentage >= 50 ? 'warning' : 'danger';
+            
+            // Show results
+            document.getElementById('fillBlankTestContainer').style.display = 'none';
+            const resultContainer = document.getElementById('fillBlankTestResult');
+            resultContainer.style.display = 'block';
+            resultContainer.innerHTML = `
+                <h3>Test Results</h3>
+                <p>You scored ${score} out of ${inputs.length} (${percentage}%)</p>
+                <div class="progress" style="height: 20px; margin: 20px 0; background-color: #e9ecef; border-radius: 4px;">
+                    <div class="progress-bar bg-${resultClass}" role="progressbar" style="width: ${percentage}%" aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <button class="btn" onclick="retakeFillBlankTest()">
+                    <i class="fas fa-redo"></i> Retake Test
+                </button>
+                <button class="btn btn-success" onclick="backToFillBlankQuestions()">
+                    <i class="fas fa-list"></i> Back to Questions
+                </button>
+            `;
+        }
+
+        // Retake fill in the blank test
+        function retakeFillBlankTest() {
+            startFillBlankTest();
+        }
+
+        // Back to fill in the blank questions
+        function backToFillBlankQuestions() {
+            document.getElementById('fillBlankTestContainer').style.display = 'none';
+            document.getElementById('fillBlankTestResult').style.display = 'none';
+            document.getElementById('fillBlankQuestionsList').style.display = 'block';
+        }
+
+        // Render test questions
+        function renderTestQuestions() {
+            // Descriptive questions
+            const descriptiveList = document.getElementById('descriptiveQuestionsList');
+            descriptiveList.innerHTML = testData.descriptive.length > 0 ? 
+                testData.descriptive.map(q => `
+                    <div class="question-item">
+                        <div class="question-text">${q.question}</div>
+                        <p>Answer: ${q.answer}</p>
+                        <div class="test-actions">
+                            <button class="btn btn-danger" onclick="deleteTestQuestion('descriptive', ${q.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                `).join('') : '<p>No descriptive questions yet.</p>';
+            
+            // Multiple choice questions
+            const mcList = document.getElementById('mcQuestionsList');
+            mcList.innerHTML = testData.multipleChoice.length > 0 ? 
+                testData.multipleChoice.map(q => `
+                    <div class="question-item">
+                        <div class="question-text">${q.question}</div>
+                        <ul class="options-list">
+                            ${q.options.map((opt, i) => `
+                                <li class="option-item">
+                                    <input type="radio" name="mc_${q.id}" id="mc_${q.id}_${i}" ${i + 1 === q.correctAnswer ? 'checked' : ''} disabled>
+                                    <label for="mc_${q.id}_${i}">${opt}</label>
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <p>Time limit: ${q.timeLimit} minutes</p>
+                        <div class="test-actions">
+                            <button class="btn btn-danger" onclick="deleteTestQuestion('multipleChoice', ${q.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                            <button class="btn btn-success" onclick="startMCTest()">
+                                <i class="fas fa-play"></i> Start Test
+                            </button>
+                        </div>
+                    </div>
+                `).join('') : '<p>No multiple choice questions yet.</p>';
+            
+            // Fill in the blank questions
+            const fillBlankList = document.getElementById('fillBlankQuestionsList');
+            fillBlankList.innerHTML = testData.fillBlank.length > 0 ? 
+                testData.fillBlank.map(q => `
+                    <div class="question-item">
+                        <div class="question-text">${q.question.replace(/___/g, '__________')}</div>
+                        <p>Answer: ${q.answer}</p>
+                        <div class="test-actions">
+                            <button class="btn btn-danger" onclick="deleteTestQuestion('fillBlank', ${q.id})">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                            <button class="btn btn-success" onclick="startFillBlankTest()">
+                                <i class="fas fa-play"></i> Start Test
+                            </button>
+                        </div>
+                    </div>
+                `).join('') : '<p>No fill in the blank questions yet.</p>';
+        }
+
+        // Delete test question
+        function deleteTestQuestion(type, id) {
+            if (confirm('Are you sure you want to delete this question?')) {
+                testData[type] = testData[type].filter(q => q.id !== id);
+                saveData();
+                renderTestQuestions();
+            }
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            isDarkMode = darkModeToggle.checked;
+            document.body.classList.toggle('dark-theme', isDarkMode);
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Change language
+        function changeLanguage() {
+            const language = languageSelect.value;
+            localStorage.setItem('language', language);
+            // In a real app, you would implement language switching logic here
+            alert('Language changed. Page will refresh to apply changes.');
+            location.reload();
+        }
+
+        // Update theme based on saved preferences
+        function updateTheme() {
+            // Check for saved dark mode preference
+            const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (savedDarkMode) {
+                isDarkMode = true;
+                document.body.classList.add('dark-theme');
+                darkModeToggle.checked = true;
+            }
+            
+            // Check for saved primary color
+            const savedPrimaryColor = localStorage.getItem('primaryColor') || '4361ee';
+            document.documentElement.style.setProperty('--primary', `#${savedPrimaryColor}`);
+            
+            // Update selected color in theme colors
+            themeColors.forEach(color => {
+                if (color.getAttribute('data-color') === savedPrimaryColor) {
+                    color.classList.add('selected');
+                } else {
+                    color.classList.remove('selected');
+                }
+            });
+            
+            // Check for saved language preference
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            languageSelect.value = savedLanguage;
+        }
+
+        // Save profile
+        function saveProfile() {
+            const profile = {
+                name: document.getElementById('profileName').value,
+                lastName: document.getElementById('profileLastName').value,
+                password: document.getElementById('profilePassword').value,
+                birthYear: document.getElementById('profileBirthYear').value,
+                birthMonth: document.getElementById('profileBirthMonth').value,
+                birthDay: document.getElementById('profileBirthDay').value,
+                picture: document.getElementById('profilePicture').src
+            };
+            
+            // Save to localStorage
+            localStorage.setItem('profile', JSON.stringify(profile));
+            
+            // Update profile picture in header
+            profilePictureHeader.src = profile.picture;
+            
+            alert('Profile saved successfully!');
+        }
+
+        // Load profile
+        function loadProfile() {
+            const savedProfile = localStorage.getItem('profile');
+            if (savedProfile) {
+                const profile = JSON.parse(savedProfile);
+                document.getElementById('profileName').value = profile.name || '';
+                document.getElementById('profileLastName').value = profile.lastName || '';
+                document.getElementById('profilePassword').value = profile.password || '';
+                document.getElementById('profileBirthYear').value = profile.birthYear || '';
+                document.getElementById('profileBirthMonth').value = profile.birthMonth || '';
+                document.getElementById('profileBirthDay').value = profile.birthDay || '';
+                
+                if (profile.picture) {
+                    document.getElementById('profilePicture').src = profile.picture;
+                    profilePictureHeader.src = profile.picture;
+                }
+            }
+        }
+
+        // Calculator functions
+        function calculatorInput(value) {
+            if (calculatorDisplayValue === '0' && value !== '.') {
+                calculatorDisplayValue = value;
+            } else {
+                calculatorDisplayValue += value;
+            }
+            calculatorDisplay.textContent = calculatorDisplayValue;
+        }
+
+        function calculatorClear() {
+            calculatorDisplayValue = '0';
+            calculatorDisplay.textContent = calculatorDisplayValue;
+        }
+
+        function calculatorCalculate() {
+            try {
+                calculatorDisplayValue = eval(calculatorDisplayValue).toString();
+                calculatorDisplay.textContent = calculatorDisplayValue;
+            } catch (e) {
+                calculatorDisplay.textContent = 'Error';
+                calculatorDisplayValue = '0';
+            }
+        }
+
+        // Save all data to localStorage
+        function saveData() {
+            localStorage.setItem('wordsData', JSON.stringify(wordsData));
+            localStorage.setItem('notesData', JSON.stringify(notesData));
+            localStorage.setItem('progressData', JSON.stringify(progressData));
+            localStorage.setItem('testData', JSON.stringify(testData));
+        }
+
+        // Load all data from localStorage
+        function loadData() {
+            const savedWords = localStorage.getItem('wordsData');
+            const savedNotes = localStorage.getItem('notesData');
+            const savedProgress = localStorage.getItem('progressData');
+            const savedTests = localStorage.getItem('testData');
+            
+            if (savedWords) wordsData = JSON.parse(savedWords);
+            if (savedNotes) notesData = JSON.parse(savedNotes);
+            if (savedProgress) progressData = JSON.parse(savedProgress);
+            if (savedTests) testData = JSON.parse(savedTests);
+            
+            loadProfile();
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
